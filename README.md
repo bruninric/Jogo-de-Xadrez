@@ -1,4 +1,18 @@
-# **Simulação de Movimentos de Peças de Xadrez em C (Jogo de Xadrez)**
+# Arquivo Jogo de Xadrez
+
+Este repositório contém o seguinte arquivo:
+
+- Jogo de Xadrez
+
+## Descrição
+
+Atividade relacionada ao desafio **Super Trunfo**.
+
+**O trabalho contido neste repositório integra o desenvolvimento do TCC.**
+
+# Explicação 
+
+## **Simulação de Movimentos de Peças de Xadrez em C (Jogo de Xadrez)**
 
 Este código em C foi projetado para simular, de forma simplificada, os movimentos de algumas peças de xadrez: Torre, Bispo, Rainha e Cavalo. O desenvolvimento seguiu uma abordagem estruturada, focada em atender a requisitos específicos de demonstração de diferentes estruturas de controle e saídas de dados.
 
