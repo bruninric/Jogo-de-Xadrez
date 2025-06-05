@@ -1,4 +1,4 @@
-# Arquivo Jogo de Xadrez
+# Jogo de Xadrez
 
 Este repositório contém o seguinte arquivo:
 
