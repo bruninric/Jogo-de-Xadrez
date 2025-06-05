@@ -1,0 +1,147 @@
+#include <stdio.h> // Para a função printf
+
+// --- Requisitos Funcionais: Entrada de Dados (Peças Anteriores) ---
+#define MOVIMENTOS_TORRE 5
+#define MOVIMENTOS_BISPO 5
+#define MOVIMENTOS_RAINHA 8
+
+// --- Requisitos Funcionais: Entrada de Dados (Cavalo) ---
+// Os valores para o número de casas (duas para baixo, uma para a esquerda)
+// são definidos aqui, embora usados diretamente na função do cavalo
+// para maior clareza no contexto do movimento em "L".
+#define CAVALO_PASSOS_PARA_BAIXO 2
+#define CAVALO_PASSOS_PARA_ESQUERDA 1
+
+
+// --- Protótipos das Funções de Movimentação ---
+void simularMovimentoTorre();
+void simularMovimentoBispo();
+void simularMovimentoRainha();
+void simularMovimentoCavalo(); // Novo protótipo
+
+/*
+ * === Requisitos não funcionais Atendidos ===
+ * 1. Performance: O código é simples e direto, executando sem atrasos perceptíveis.
+ * 2. Documentação: Comentários explicam a lógica e os requisitos.
+ * 3. Legibilidade:
+ * - Código claro e organizado em funções.
+ * - Nomes de variáveis e constantes descritivos (em português).
+ * - Indentação adequada.
+ * - Utilização apenas de variáveis do tipo inteiro e literais de string.
+ *
+ * === Simplificações para o nível básico/intermediário Atendidas ===
+ * - Não há validação de entrada do usuário.
+ * - Simula apenas o movimento individual de cada peça.
+ * - Para as primeiras peças: Utiliza as estruturas for, while e do-while, uma para cada.
+ * - Para o Cavalo:
+ * - Assume posição inicial definida (abstrata, focada na sequência de movimentos).
+ * - Implementa o movimento específico do Cavalo (2 para baixo, 1 para esquerda).
+ * - Usa loops aninhados (um 'for' e um 'while' neste caso).
+ */
+
+int main() {
+    // Mensagem inicial do programa
+    printf("Simulacao de Movimento de Pecas de Xadrez\n");
+    printf("-------------------------------------------\n\n");
+
+    // --- Lógica de Movimentação: Chamada das simulações ---
+    simularMovimentoTorre();
+    simularMovimentoBispo();
+    simularMovimentoRainha();
+
+    // Requisito Funcional (Saída de Dados - Cavalo):
+    // Separar o movimento do Cavalo dos movimentos anteriores com uma linha em branco.
+    printf("\n");
+
+    simularMovimentoCavalo(); // Nova chamada para o Cavalo
+
+    printf("Fim da simulacao.\n"); // Mensagem final após todos os movimentos
+
+    return 0; // Indica que o programa terminou com sucesso
+}
+
+/**
+ * @brief Simula o movimento da Torre.
+ *
+ * A Torre move-se MOVIMENTOS_TORRE casas para a direita.
+ * Utiliza a estrutura de repetição FOR.
+ */
+void simularMovimentoTorre() {
+    printf("Movimento da Torre (%d casas para a direita):\n", MOVIMENTOS_TORRE);
+    for (int i = 0; i < MOVIMENTOS_TORRE; i++) {
+        printf("Direita\n");
+    }
+    printf("-------------------------------------------\n\n");
+}
+
+/**
+ * @brief Simula o movimento do Bispo.
+ *
+ * O Bispo move-se MOVIMENTOS_BISPO casas na diagonal para cima e à direita.
+ * Utiliza a estrutura de repetição WHILE.
+ */
+void simularMovimentoBispo() {
+    printf("Movimento do Bispo (%d casas para cima e direita):\n", MOVIMENTOS_BISPO);
+    int movimentos_feitos = 0;
+    while (movimentos_feitos < MOVIMENTOS_BISPO) {
+        printf("Cima, Direita\n");
+        movimentos_feitos++;
+    }
+    printf("-------------------------------------------\n\n");
+}
+
+/**
+ * @brief Simula o movimento da Rainha.
+ *
+ * A Rainha move-se MOVIMENTOS_RAINHA casas para a esquerda.
+ * Utiliza a estrutura de repetição DO-WHILE.
+ */
+void simularMovimentoRainha() {
+    printf("Movimento da Rainha (%d casas para a esquerda):\n", MOVIMENTOS_RAINHA);
+    int movimentos_feitos = 0;
+    if (MOVIMENTOS_RAINHA > 0) {
+        do {
+            printf("Esquerda\n");
+            movimentos_feitos++;
+        } while (movimentos_feitos < MOVIMENTOS_RAINHA);
+    }
+    printf("-------------------------------------------\n\n"); // Separador após a rainha
+}
+
+/**
+ * @brief Simula o movimento do Cavalo.
+ *
+ * O Cavalo move-se em "L": CAVALO_PASSOS_PARA_BAIXO casas para baixo,
+ * e depois CAVALO_PASSOS_PARA_ESQUERDA casa para a esquerda.
+ * Utiliza loops aninhados: um loop 'for' e um loop 'while',
+ * contidos dentro de um loop 'for' externo que executa uma vez para
+ * representar o único movimento em "L" solicitado.
+ *
+ * Requisito Funcional (Lógica de Movimentação - Cavalo):
+ * Implementa movimento em "L" usando loops aninhados (um 'for' e um 'while').
+ * Requisito Funcional (Saída de Dados - Cavalo):
+ * Imprime "Baixo", "Baixo", "Esquerda".
+ */
+void simularMovimentoCavalo() {
+    printf("Movimento do Cavalo (%d casas para baixo, %d para esquerda):\n",
+           CAVALO_PASSOS_PARA_BAIXO, CAVALO_PASSOS_PARA_ESQUERDA);
+
+    // Loop externo para encapsular o único movimento em "L" solicitado.
+    // Este loop executa apenas uma vez.
+    // Os loops internos (um 'for' e um 'while') são "aninhados" dentro deste.
+    for (int l_move_instance = 0; l_move_instance < 1; l_move_instance++) {
+
+        // Parte 1 do L: Mover para baixo (usando loop 'for' obrigatoriamente para uma das partes)
+        for (int i = 0; i < CAVALO_PASSOS_PARA_BAIXO; i++) {
+            printf("Baixo\n"); // Saída de dados
+        }
+
+        // Parte 2 do L: Mover para a esquerda (usando loop 'while' como a outra opção)
+        int count_esquerda = 0;
+        while (count_esquerda < CAVALO_PASSOS_PARA_ESQUERDA) {
+            printf("Esquerda\n"); // Saída de dados
+            count_esquerda++;
+        }
+    }
+    printf("-------------------------------------------\n\n"); // Separador após o cavalo
+}
